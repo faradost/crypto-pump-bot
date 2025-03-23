@@ -3,7 +3,9 @@ import time
 import schedule
 import pandas as pd
 from telegram import Bot
-from config import TELEGRAM_TOKEN, CHAT_ID
+import os
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 from datetime import datetime
 
 bot = Bot(token=TELEGRAM_TOKEN)
