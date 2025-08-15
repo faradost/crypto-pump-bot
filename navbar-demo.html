@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Navbar Scroll Demo</title>
+	<style>
+		:root {
+			--color-primary: #ff9d00;
+			--color-bg: #121212;
+			--color-bg-secondary: #212121;
+			--color-text-primary: #ffffff;
+			--color-text-secondary: #cccccc;
+			--color-border: #10100f;
+		}
+
+		html { scroll-behavior: smooth; }
+
+		body {
+			background-color: var(--color-bg);
+			color: var(--color-text-primary);
+			font-family: 'Inter', sans-serif;
+			margin: 0;
+			overflow-x: hidden;
+		}
+
+		.container {
+			max-width: 1280px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: 24px;
+			padding-right: 24px;
+		}
+
+		section { position: relative; overflow: hidden; }
+		a { text-decoration: none; color: inherit; }
+		ul { list-style: none; margin: 0; padding: 0; }
+
+		.btn {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 12px 24px;
+			font-weight: 700;
+			font-size: 18px;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn-primary { background-color: var(--color-primary); color: var(--color-text-primary); }
+		.btn-primary:hover { background-color: #e68e00; }
+
+		.section-title { font-size: 40px; font-weight: 700; text-align: center; margin-top: 0; margin-bottom: 22px; }
+		.section-subtitle { font-size: 20px; font-weight: 400; line-height: 28px; text-align: center; color: var(--color-text-primary); max-width: 500px; margin: 0 auto; }
+
+		.bg-element { position: absolute; z-index: 0; pointer-events: none; }
+
+		.navbar {
+			position: sticky;
+			top: 0;
+			z-index: 10;
+			transition: background 0.3s, box-shadow 0.3s;
+			background: none;
+			box-shadow: none;
+		}
+
+		.navbar.scrolled {
+			background: rgba(30, 30, 30, 0.6);
+			backdrop-filter: blur(12px);
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+
+		.navbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+		.navbar a { color: var(--color-text-primary); }
+
+		.hero { height: 80vh; display: grid; place-items: center; }
+		.section { padding: 80px 0; border-top: 1px solid #1e1e1e; }
+
+		@media (max-width: 1024px) { .container { padding-left: 20px; padding-right: 20px; } }
+		@media (max-width: 768px) { .section-title { font-size: 32px; } .section-subtitle { font-size: 18px; } }
+	</style>
+</head>
+<body>
+	<header class="navbar">
+		<div class="container navbar-inner">
+			<a href="#">لوگو</a>
+			<nav>
+				<a href="#s1">لینک ۱</a>
+				<span style="margin:0 12px;opacity:.3">|</span>
+				<a href="#s2">لینک ۲</a>
+			</nav>
+			<a class="btn btn-primary" href="#s2">اقدام</a>
+		</div>
+	</header>
+
+	<section class="hero">
+		<div class="container">
+			<h1 class="section-title">دموی ناوبار</h1>
+			<p class="section-subtitle">ناوبار در ابتدا بدون بک‌گراند است و بعد از اسکرول، بک‌گراند فعال می‌شود.</p>
+		</div>
+	</section>
+
+	<section id="s1" class="section">
+		<div class="container">
+			<h2>بخش ۱</h2>
+			<p>...</p>
+			<p style="height: 1200px"></p>
+		</div>
+	</section>
+
+	<section id="s2" class="section">
+		<div class="container">
+			<h2>بخش ۲</h2>
+			<p>...</p>
+		</div>
+	</section>
+
+	<script src="./navbar-scroll.js"></script>
+</body>
+</html>
